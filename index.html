@@ -1,118 +1,138 @@
-html<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroVerde - Sustentabilidade Dinâmica</title>
+    <title>AgroVerde - Sustentabilidade no Agronegócio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
-    <!-- Menu de Navegação Tradicional Superior -->
+    <!-- ETAPA 3: Cabeçalho e Menu de Navegação -->
     <header class="canva-nav">
         <div class="logo"><i class="fa-solid fa-leaf"></i> AgroVerde</div>
         <nav class="nav-links">
             <a href="#home">Início</a>
-            <a href="#economia">Economia</a>
-            <a href="#tecnologia">Tecnologia</a>
-            <a href="#interativo">Simulador</a>
+            <a href="#producao">Produção</a>
+            <a href="#sustentabilidade">Sustentabilidade</a>
+            <a href="#desafios">Desafios</a>
+            <a href="#solucoes">Soluções</a>
             <a href="#contato">Contato</a>
         </nav>
     </header>
 
-    <!-- Seções Sequenciais -->
     <main class="page-wrapper">
 
-        <!-- SEÇÃO 1: Capa (Hero) -->
+        <!-- ETAPA 2: Página Inicial (Hero) -->
         <section id="home" class="section capa dynamic-section">
             <div class="shapes">
                 <div class="circle-shape rotate-anim"></div>
             </div>
             <div class="section-content animate-up">
-                <span class="tag">Página Educativa</span>
+                <span class="tag">ETAPA 2: INTRODUÇÃO</span>
                 <h1>Cultivando o <br><span class="highlight">Futuro</span></h1>
-                <p>Como o agronegócio pode crescer economicamente sem comprometer os recursos naturais das futuras gerações?</p>
-                <a href="#interativo" class="btn-scroll">Ir para as Ferramentas <i class="fa-solid fa-arrow-down"></i></a>
+                <!-- Pergunta Norteadora Integrada -->
+                <p class="pergunta-norteadora">“Como o agronegócio pode crescer economicamente sem comprometer os recursos naturais das futuras gerações?”</p>
+                <a href="#producao" class="btn-scroll">Iniciar Apresentação <i class="fa-solid fa-arrow-down"></i></a>
             </div>
         </section>
 
-        <!-- SEÇÃO 2: Dados e Economia -->
-        <section id="economia" class="section economia dynamic-section">
+        <!-- ETAPA 2 - SEÇÃO 1: Produção Agrícola -->
+        <section id="producao" class="section economia dynamic-section">
             <div class="section-content grid-two-columns">
                 <div class="col-text animate-left">
-                    <span class="tag-dark">01 . Crescimento Limpo</span>
-                    <h2>Eficiência em Gráficos</h2>
-                    <p>O uso de tecnologia permite produzir mais usando a mesma quantidade de terra. Veja o ganho de eficiência projetado abaixo:</p>
+                    <span class="tag-dark">Seção 1 . Produção Agrícola</span>
+                    <h2>O Motor do PIB</h2>
+                    <p>O agronegócio representa cerca de 25% da nossa economia, garantindo segurança alimentar e gerando empregos. A evolução tecnológica impulsiona safras recordes ano após ano.</p>
                     
-                    <!-- Gráfico Dinâmico -->
+                    <!-- Etapa 4: Gráfico de Crescimento -->
                     <div class="dynamic-chart-container">
+                        <span class="chart-title"><i class="fa-solid fa-chart-line"></i> Produtividade Geral</span>
                         <div class="chart-bar-wrapper">
-                            <span class="bar-label">Modelo Tradicional</span>
-                            <div class="chart-bar bar-1" data-progress="40%"></div>
-                        </div>
-                        <div class="chart-bar-wrapper">
-                            <span class="bar-label">Modelo Tecnológico</span>
-                            <div class="chart-bar bar-2" data-progress="95%"></div>
+                            <span class="bar-label">Eficiência Atual no Campo</span>
+                            <div class="chart-bar bar-pib" data-progress="85%"></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-visual animate-right">
                     <div class="stat-box">
                         <h3 id="counter-pib" data-target="25">0</h3>
-                        <p>Participação no PIB Nacional</p>
+                        <p>Do PIB Nacional vem do Campo</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 3: Pilares Tecnológicos -->
-        <section id="tecnologia" class="section tecnologia dynamic-section">
+        <!-- ETAPA 2 - SEÇÃO 2: Sustentabilidade -->
+        <section id="sustentabilidade" class="section tecnologia dynamic-section">
             <div class="section-content">
                 <div class="text-center-canva animate-up">
-                    <span class="tag">02 . Automação</span>
-                    <h2>Monitoramento Inteligente</h2>
+                    <span class="tag">Seção 2 . Sustentabilidade</span>
+                    <h2>Tecnologias Verdes</h2>
+                    <p>Práticas ecológicas e conservação do solo baseadas em matrizes limpas.</p>
                 </div>
+                <!-- Etapa 4: Recursos Visuais / Ícones -->
                 <div class="canva-cards">
                     <div class="c-card animate-card" style="--delay: 1;">
                         <div class="c-icon"><i class="fa-solid fa-drone"></i></div>
-                        <h4>Drones</h4>
-                        <p>Varredura de pragas em minutos.</p>
+                        <h4>Drones & Precisão</h4>
+                        <p>Mapeamento térmico e aplicação exata de insumos básicos.</p>
                     </div>
                     <div class="c-card animate-card" style="--delay: 2;">
                         <div class="c-icon"><i class="fa-solid fa-faucet-drip"></i></div>
-                        <h4>Irrigação</h4>
-                        <p>Ativação apenas com solo seco.</p>
+                        <h4>Irrigação Inteligente</h4>
+                        <p>Sensores que evitam desperdício e economizam água.</p>
                     </div>
                     <div class="c-card animate-card" style="--delay: 3;">
                         <div class="c-icon"><i class="fa-solid fa-solar-panel"></i></div>
-                        <h4>Energia</h4>
-                        <p>Operação 100% autossustentável.</p>
+                        <h4>Energia Renovável</h4>
+                        <p>Fazendas movidas por energia solar e biocompostagem.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 4: Ferramentas Interativas -->
-        <section id="interativo" class="section interativo dynamic-section">
+        <!-- ETAPA 2 - SEÇÃO 3: Desafios Ambientais -->
+        <section id="desafios" class="section desafios-section dynamic-section">
+            <div class="section-content grid-two-columns">
+                <div class="col-visual animate-left">
+                    <div class="alert-box">
+                        <i class="fa-solid fa-triangle-exclamation alert-icon"></i>
+                        <h3>Riscos Críticos</h3>
+                    </div>
+                </div>
+                <div class="col-text animate-right">
+                    <span class="tag-dark">Seção 3 . Desafios</span>
+                    <h2>Impactos Atuais</h2>
+                    <p>O avanço predatório causa desmatamento, emissão desenfreada de carbono e esgotamento de fontes hídricas, ameaçando as gerações futuras.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ETAPA 2 - SEÇÃO 4: Soluções e Futuro (Com Desafios Complementares) -->
+        <section id="solucoes" class="section interativo dynamic-section">
             <div class="section-content">
                 <div class="text-center-canva animate-up">
-                    <span class="tag-dark">03 . Algoritmos</span>
-                    <h2>Simulações em Tempo Real</h2>
+                    <span class="tag">Seção 4 . O Futuro</span>
+                    <h2>Agricultura Regenerativa</h2>
+                    <p>Equilíbrio real entre preservação ambiental e rentabilidade financeira.</p>
                 </div>
+                
+                <!-- DESAFIO COMPLEMENTAR: Calculadora e Quiz -->
                 <div class="canva-tools animate-up">
                     <div class="tool-card">
-                        <h3><i class="fa-solid fa-droplet"></i> Calculadora Hídrica</h3>
-                        <label>Tamanho da Área (Hectares):</label>
-                        <input type="number" id="hectares" placeholder="Digite um valor para simular...">
+                        <h3><i class="fa-solid fa-calculator"></i> Calculadora Hídrica</h3>
+                        <label>Tamanho da Área Fictícia (Hectares):</label>
+                        <input type="number" id="hectares" placeholder="Digite uma área...">
                         <p id="resultado-calc" class="canva-res"></p>
                     </div>
                     <div class="tool-card">
-                        <h3><i class="fa-solid fa-graduation-cap"></i> Quiz de Resposta Imediata</h3>
-                        <p>O desmatamento é obrigatório para aumentar o PIB do Agro?</p>
+                        <h3><i class="fa-solid fa-circle-question"></i> Quiz Sustentável</h3>
+                        <p>A rotação de culturas ajuda a preservar os nutrientes naturais do solo?</p>
                         <div class="quiz-buttons">
-                            <button class="btn-canva-opt" data-correct="false">Sim, precisa</button>
-                            <button class="btn-canva-opt" data-correct="true">Não, mentira</button>
+                            <button class="btn-canva-opt" data-correct="true">Sim, ajuda</button>
+                            <button class="btn-canva-opt" data-correct="false">Não, mito</button>
                         </div>
                         <p id="resultado-quiz" class="canva-res"></p>
                     </div>
@@ -120,24 +140,27 @@ html<!DOCTYPE html>
             </div>
         </section>
 
-        <!-- SEÇÃO 5: Formulário de Contato -->
+        <!-- ETAPA 2 - SEÇÃO 5: Contato ou Conscientização -->
         <section id="contato" class="section contato dynamic-section">
             <div class="section-content text-center-canva animate-up">
-                <span class="tag">Fim da Jornada</span>
-                <h2>Gostou da Experiência?</h2>
-                <p class="final-p">Deixe seu contato para receber o relatório completo gerado pelas suas interações.</p>
+                <span class="tag-dark">Seção 5 . Mensagem Final</span>
+                <h2>Faça Parte da Mudança</h2>
+                <p class="final-p">Entre em contato para receber nosso material pedagógico completo sobre o Agronegócio Sustentável.</p>
+                
+                <!-- Formulário de Contato -->
                 <form class="canva-form" id="dynamic-form">
+                    <input type="text" id="username" placeholder="Seu Nome" required>
                     <input type="email" id="email" placeholder="Seu melhor e-mail" required>
-                    <button type="submit">Enviar Dados</button>
+                    <button type="submit">Enviar Mensagem</button>
                 </form>
             </div>
         </section>
 
     </main>
 
-    <!-- Rodapé -->
+    <!-- ETAPA 3: Rodapé -->
     <footer class="canva-footer">
-        <p>&copy; 2026 AgroVerde. Todos os direitos reservados. Design estilo Canva Pop.</p>
+        <p>&copy; 2026 AgroVerde. Preservando recursos para as próximas gerações.</p>
     </footer>
 
     <script src="script.js"></script>

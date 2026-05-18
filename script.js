@@ -1,9 +1,9 @@
-javascript// 1. ANIMAÇÕES DINÂMICAS AO ROLAR A TELA (Intersection Observer para Janela Geral)
+// 1. MONITORAMENTO DE SEÇÕES (Intersection Observer para Rolagem)
 const sections = document.querySelectorAll('.dynamic-section');
 
 const observerOptions = {
-    root: null, // Usa o scroll da janela global do navegador
-    threshold: 0.2 // Dispara assim que 20% da seção aparece na tela
+    root: null, // Janela do navegador
+    threshold: 0.2
 };
 
 const sectionObserver = new IntersectionObserver((entries) => {
@@ -11,9 +11,9 @@ const sectionObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
             
-            // Disparar o contador e gráfico do bloco de dados
-            if (entry.target.id === 'economia') {
-                animarGraficoERecurso();
+            // Ativa funções do Bloco de Dados Econômicos
+            if (entry.target.id === 'producao') {
+                animarElementosProducao();
             }
         }
     });
@@ -22,20 +22,20 @@ const sectionObserver = new IntersectionObserver((entries) => {
 sections.forEach(section => sectionObserver.observe(section));
 
 
-// 2. DISPARADORES VISUAIS DA SEÇÃO DE DADOS
-function animarGraficoERecurso() {
-    // Alarga as barras do gráfico de 0% para o valor final
-    const bars = document.querySelectorAll('.chart-bar');
-    bars.forEach(bar => {
+// 2. COMPORTAMENTO DOS COMPONENTES VISUAIS DA SEÇÃO 1
+function animarElementosProducao() {
+    // Alarga barra de progresso do gráfico estrutural
+    const bar = document.querySelector('.chart-bar');
+    if(bar) {
         bar.style.width = bar.getAttribute('data-progress');
-    });
+    }
 
-    // Efeito numérico crescente (0 a 25)
+    // Máquina de somar numérica (0% a 25%)
     const pibCounter = document.getElementById('counter-pib');
     const target = parseInt(pibCounter.getAttribute('data-target'));
     let current = 0;
     
-    if(pibCounter.innerText !== "0") return; // Impede que reinicie toda vez que passar o scroll
+    if(pibCounter.innerText !== "0") return;
 
     const interval = setInterval(() => {
         if (current < target) {
@@ -49,7 +49,7 @@ function animarGraficoERecurso() {
 }
 
 
-// 3. CALCULADORA INTERATIVA (Captura em Tempo Real ao digitar)
+// 3. DESAFIO COMPLEMENTAR: CALCULADORA HÍDRICA DINÂMICA
 const hectaresInput = document.getElementById('hectares');
 hectaresInput.addEventListener('input', () => {
     const value = hectaresInput.value;
@@ -57,18 +57,19 @@ hectaresInput.addEventListener('input', () => {
     res.style.display = "block";
 
     if (!value || value <= 0) {
-        res.style.color = "#d90429";
-        res.innerText = "Aguardando um tamanho válido...";
+        res.style.color = "#e63946";
+        res.innerText = "Aguardando um tamanho em hectares...";
         return;
     }
 
+    // Regra: 15.000 litros por hectare ao mês salvos
     const economiaCalculada = value * 15000 * 12;
     res.style.color = "#1a1a1a";
-    res.innerHTML = `💧 Resultado: Economia estimada de <strong>${economiaCalculada.toLocaleString('pt-BR')}L</strong> por ano!`;
+    res.innerHTML = `💧 <strong>${economiaCalculada.toLocaleString('pt-BR')} Litros</strong> poupados anualmente via sensores inteligentes!`;
 });
 
 
-// 4. LOGICA DO QUIZ DINÂMICO
+// 4. DESAFIO COMPLEMENTAR: QUIZ DE RESPOSTA IMEDIATA
 const quizButtons = document.querySelectorAll('.btn-canva-opt');
 quizButtons.forEach(button => {
     button.addEventListener('click', (e) => {
@@ -78,26 +79,29 @@ quizButtons.forEach(button => {
 
         if (isCorrect) {
             res.style.color = "#006400";
-            res.innerText = "🎯 Resposta exata! A tecnologia evita a expansão de terras desnecessárias.";
+            res.innerText = "🎯 Certíssimo! A rotação preserva o solo e quebra o ciclo de pragas.";
         } else {
-            res.style.color = "#d90429";
-            res.innerText = "❌ Incorreto. O segredo atual está em aumentar a produção por hectare.";
+            res.style.color = "#e63946";
+            res.innerText = "❌ Incorreto. Ela é uma das bases mais baratas e eficazes da sustentabilidade.";
         }
     });
 });
 
 
-// 5. SUBMISSÃO DO FORMULÁRIO COM FEEDBACK
+// 5. MENSAGEM FINAL / FORMULÁRIO DE CONSCIENTIZAÇÃO
 document.getElementById('dynamic-form').addEventListener('submit', (e) => {
     e.preventDefault();
+    const username = document.getElementById('username').value;
     const btn = e.target.querySelector('button');
-    btn.innerText = "Sincronizando...";
+    
+    btn.innerText = "Processando Informações...";
     btn.disabled = true;
 
     setTimeout(() => {
-        alert("✨ Concluído! Seus dados de conscientização ecológica foram registrados.");
-        btn.innerText = "Enviar Dados";
+        alert(`Obrigado pela participação, ${username}! Seu e-mail foi cadastrado no radar sustentável.`);
+        btn.innerText = "Enviar Mensagem";
         btn.disabled = false;
+        document.getElementById('username').value = "";
         document.getElementById('email').value = "";
     }, 1200);
 });

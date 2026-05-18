@@ -1,4 +1,4 @@
-css@import url('https://googleapis.com');
+@import url('https://googleapis.com');
 
 * {
     margin: 0;
@@ -11,6 +11,7 @@ css@import url('https://googleapis.com');
     --bg-coral: #ff5e62;
     --bg-amarelo: #ffbe0b;
     --bg-verde: #06d6a0;
+    --bg-vermelho: #e63946;
     --bg-azul: #118ab2;
     --bg-roxo: #7209b7;
     --text-dark: #1a1a1a;
@@ -23,7 +24,6 @@ body {
     font-family: var(--font-body);
     color: var(--text-dark);
     background-color: white;
-    /* Removido o 'overflow: hidden' para permitir a rolagem normal */
 }
 
 /* Menu Superior Fixo */
@@ -59,18 +59,14 @@ body {
 }
 .nav-links a:hover { color: var(--bg-coral); }
 
-/* Layout Geral das Seções (Estilo Bloco) */
-.page-wrapper {
-    margin-top: 0; /* Remove margens extras */
-}
-
+/* Configuração de Seções Individuais Contínuas */
 .section {
     width: 100%;
-    min-height: 100vh; /* Cada seção ocupa no mínimo o tamanho da tela */
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8rem 2rem 6rem 2rem; /* Espaçamento interno generoso */
+    padding: 8rem 2rem 6rem 2rem;
     position: relative;
 }
 
@@ -80,53 +76,67 @@ body {
     z-index: 10;
 }
 
-/* Cores de Fundo das Seções */
+/* Estilização Color Block por Seção */
 .capa { background-color: var(--bg-coral); color: white; }
 .economia { background-color: var(--bg-amarelo); color: var(--text-dark); }
 .tecnologia { background-color: var(--bg-verde); color: var(--text-dark); }
+.desafios-section { background-color: var(--bg-vermelho); color: white; }
 .interativo { background-color: var(--bg-azul); color: white; }
 .contato { background-color: var(--bg-roxo); color: white; }
 
-/* Títulos Pop-Art */
+/* Tipografia Marcante */
 .capa h1 { font-family: var(--font-title); font-size: 5.5rem; line-height: 1; margin: 1.5rem 0; text-shadow: 4px 4px 0px #1a1a1a; }
 .highlight { color: #ffbe0b; }
-.tag { background: #1a1a1a; color: white; padding: 0.5rem 1.2rem; border-radius: 12px; font-weight: 700; display: inline-block; }
-.tag-dark { background: white; color: #1a1a1a; padding: 0.5rem 1.2rem; border-radius: 12px; font-weight: 800; border: 2px solid #1a1a1a; }
-.capa p { font-size: 1.4rem; max-width: 600px; background: rgba(0,0,0,0.15); padding: 1.5rem; border-radius: 20px; margin-top: 1rem; }
+.tag { background: #1a1a1a; color: white; padding: 0.5rem 1.2rem; border-radius: 12px; font-weight: 700; display: inline-block; text-transform: uppercase; }
+.tag-dark { background: white; color: #1a1a1a; padding: 0.5rem 1.2rem; border-radius: 12px; font-weight: 800; border: 2px solid #1a1a1a; text-transform: uppercase; }
+
+.pergunta-norteadora {
+    font-size: 1.5rem;
+    max-width: 700px;
+    font-weight: 700;
+    background: #1a1a1a;
+    color: #ffbe0b;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-top: 1.5rem;
+    border: 3px dashed white;
+}
 
 .btn-scroll {
     display: inline-block;
-    background: #1a1a1a;
-    color: white;
+    background: white;
+    color: #1a1a1a;
     text-decoration: none;
     padding: 0.8rem 2rem;
     border-radius: 50px;
-    font-weight: 700;
-    margin-top: 1.5rem;
-    transition: transform 0.2s;
+    font-weight: 800;
+    margin-top: 2rem;
+    border: 3px solid #1a1a1a;
+    box-shadow: 4px 4px 0px #1a1a1a;
 }
-.btn-scroll:hover { transform: translateY(-3px); }
 
-/* Formas Decorativas */
 .shapes .circle-shape { position: absolute; bottom: 10%; right: 5%; width: 200px; height: 200px; background: #ffbe0b; border-radius: 50%; border: 4px solid #1a1a1a; }
 .rotate-anim { animation: rotation 20s infinite linear; }
 @keyframes rotation { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-/* Grid e Elementos Internos */
+/* Grid Estrutural */
 .grid-two-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-.economia h2 { font-family: var(--font-title); font-size: 4.5rem; }
+.economia h2, .desafios-section h2 { font-family: var(--font-title); font-size: 4.5rem; }
 
-/* Painel do Gráfico */
+/* Gráficos em Bloco */
 .dynamic-chart-container { margin-top: 2rem; background: white; padding: 1.5rem; border-radius: 20px; border: 3px solid #1a1a1a; box-shadow: 5px 5px 0px #1a1a1a; }
-.chart-bar-wrapper { margin-bottom: 1rem; }
+.chart-title { font-weight: 800; display: block; margin-bottom: 1rem; color: #1a1a1a; }
+.chart-bar-wrapper { margin-bottom: 0.5rem; }
 .bar-label { font-weight: 700; font-size: 0.9rem; display: block; margin-bottom: 0.3rem; color: var(--text-dark); }
-.chart-bar { height: 25px; background: var(--bg-coral); width: 0%; border: 2px solid #1a1a1a; border-radius: 8px; transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1); }
-.chart-bar.bar-2 { background: var(--bg-verde); }
+.chart-bar { height: 30px; background: var(--bg-coral); width: 0%; border: 2px solid #1a1a1a; border-radius: 8px; transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1); }
 
-.stat-box { background: white; padding: 3.5rem 2rem; border-radius: 35px; text-align: center; border: 4px solid #1a1a1a; box-shadow: 8px 8px 0px #1a1a1a; color: var(--text-dark); }
+/* Caixas de Status */
+.stat-box, .alert-box { background: white; padding: 3.5rem 2rem; border-radius: 35px; text-align: center; border: 4px solid #1a1a1a; box-shadow: 8px 8px 0px #1a1a1a; color: #1a1a1a; }
 .stat-box h3 { font-family: var(--font-title); font-size: 7rem; color: var(--bg-coral); line-height: 1; }
+.alert-icon { font-size: 5rem; color: var(--bg-vermelho); margin-bottom: 1rem; }
+.alert-box h3 { font-family: var(--font-title); font-size: 2.5rem; }
 
-/* Cards da Tecnologia */
+/* Cards Multimídia */
 .text-center-canva { text-align: center; margin-bottom: 3rem; }
 .text-center-canva h2 { font-family: var(--font-title); font-size: 4rem; text-shadow: 3px 3px 0px white; }
 .canva-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
@@ -134,8 +144,7 @@ body {
 .c-icon { font-size: 3rem; color: var(--bg-roxo); margin-bottom: 1rem; }
 .c-card h4 { font-family: var(--font-title); font-size: 1.6rem; margin-bottom: 0.5rem; }
 
-/* Simulador e Ferramentas */
-.interativo h2 { text-shadow: 3px 3px 0px #1a1a1a; }
+/* Ferramentas do Desafio */
 .canva-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
 .tool-card { background: white; color: var(--text-dark); padding: 2.5rem; border-radius: 30px; border: 3px solid #1a1a1a; box-shadow: 8px 8px 0px #ffbe0b; }
 .tool-card h3 { font-family: var(--font-title); font-size: 1.8rem; margin-bottom: 1rem; }
@@ -144,53 +153,33 @@ body {
 .btn-canva-opt { flex: 1; padding: 1rem; border: 3px solid #1a1a1a; background: #ffbe0b; border-radius: 15px; cursor: pointer; font-weight: 800; }
 .canva-res { margin-top: 1.5rem; font-weight: 800; font-size: 1.1rem; padding: 0.5rem; border-radius: 10px; background: rgba(0,0,0,0.05); display: none; }
 
-/* Formulário Final */
+/* Formulário de Comunicação Visual */
 .contato h2 { font-size: 4.5rem; text-shadow: 4px 4px 0px #1a1a1a; }
 .final-p { max-width: 600px; margin: 1.5rem auto; font-size: 1.3rem; }
-.canva-form { display: flex; max-width: 550px; margin: 0 auto; gap: 15px; }
-.canva-form input { flex: 1; padding: 1.2rem; border-radius: 20px; border: 3px solid #1a1a1a; font-weight: 600; }
+.canva-form { display: flex; flex-direction: column; max-width: 500px; margin: 0 auto; gap: 15px; }
+.canva-form input { width: 100%; padding: 1.2rem; border-radius: 20px; border: 3px solid #1a1a1a; font-weight: 600; }
 .canva-form button { background: var(--bg-verde); color: #1a1a1a; font-weight: 800; border: 3px solid #1a1a1a; padding: 1.2rem; border-radius: 20px; cursor: pointer; box-shadow: 4px 4px 0px #1a1a1a; }
 
-/* Rodapé Estilizado */
-.canva-footer {
-    background-color: #1a1a1a;
-    color: white;
-    text-align: center;
-    padding: 2rem;
-    font-weight: 600;
-    border-top: 4px solid var(--bg-amarelo);
-}
+/* Rodapé */
+.canva-footer { background-color: #1a1a1a; color: white; text-align: center; padding: 2rem; font-weight: 600; border-top: 4px solid var(--bg-amarelo); }
 
-/* --- LOGICA DE ANIMAÇÕES AO SCROLL --- */
-.animate-up, .animate-left, .animate-right, .animate-card {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-}
+/* --- ANIMAÇÕES DINÂMICAS --- */
+.animate-up, .animate-left, .animate-right, .animate-card { opacity: 0; transform: translateY(40px); transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1); }
 .animate-left { transform: translateX(-50px); }
 .animate-right { transform: translateX(50px); }
 
-.visible .animate-up, .visible .animate-left, .visible .animate-right {
-    opacity: 1;
-    transform: translate(0, 0);
-}
-.visible .animate-card {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: calc(var(--delay) * 0.15s);
-}
+.visible .animate-up, .visible .animate-left, .visible .animate-right { opacity: 1; transform: translate(0, 0); }
+.visible .animate-card { opacity: 1; transform: translateY(0); transition-delay: calc(var(--delay) * 0.15s); }
 
-/* Media Queries para Telas de Smartphones */
 @media (max-width: 768px) {
     .canva-nav { flex-direction: column; gap: 10px; border-radius: 20px; padding: 1rem; width: 95%; }
     .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
     .nav-links a { margin: 0; font-size: 0.9rem; }
     .grid-two-columns, .canva-cards, .canva-tools { grid-template-columns: 1fr; gap: 2rem; }
     .capa h1 { font-size: 3rem; }
-    .economia h2 { font-size: 2.5rem; }
-    .text-center-canva h2 { font-size: 2.3rem; }
-    .contato h2 { font-size: 2.5rem; }
+    .economia h2, .desafios-section h2 { font-size: 2.3rem; }
+    .text-center-canva h2 { font-size: 2.1rem; }
+    .contato h2 { font-size: 2.3rem; }
     .stat-box h3 { font-size: 4.5rem; }
-    .canva-form { flex-direction: column; }
-    .section { padding-top: 10rem; }
+    .section { padding-top: 12rem; }
 }
