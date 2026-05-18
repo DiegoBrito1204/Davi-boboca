@@ -3,129 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho | Sustentabilidade no Agronegócio</title>
+    <title>AgroVerde - Apresentação Interativa</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Ícones FontAwesome -->
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
-    <!-- Menu de Navegação -->
-    <header class="navbar">
-        <div class="logo">AGRINHO</div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-        <nav class="nav-links" id="navLinks">
-            <a href="#home">Início</a>
-            <a href="#producao">Produção</a>
-            <a href="#tecnologia">Tecnologia</a>
-            <a href="#desafios">Desafios</a>
-            <a href="#interativo">Interativo</a>
-            <a href="#contato">Contato</a>
+    <!-- Navegação Estilo Canva -->
+    <header class="canva-nav">
+        <div class="logo"><i class="fa-solid fa-leaf"></i> AgroVerde</div>
+        <nav class="slide-indicator">
+            <a href="#slide1" class="dot active" data-slide="1"></a>
+            <a href="#slide2" class="dot" data-slide="2"></a>
+            <a href="#slide3" class="dot" data-slide="3"></a>
+            <a href="#slide4" class="dot" data-slide="4"></a>
+            <a href="#slide5" class="dot" data-slide="5"></a>
         </nav>
+        <a href="#slide4" class="btn-interagir">Interagir <i class="fa-solid fa-play"></i></a>
     </header>
 
-    <main>
-        <!-- Página Inicial -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>O Futuro da Terra na Tecnologia de Hoje</h1>
+    <!-- Container dos Slides -->
+    <div class="slides-container">
+
+        <!-- SLIDE 1: Capa Impactante -->
+        <section id="slide1" class="slide capa">
+            <div class="shapes">
+                <div class="circle-shape"></div>
+                <div class="leaf-shape"></div>
+            </div>
+            <div class="slide-content">
+                <span class="tag">Apresentação Educativa</span>
+                <h1>Cultivando o <br><span class="highlight">Futuro</span></h1>
                 <p>Como o agronegócio pode crescer economicamente sem comprometer os recursos naturais das futuras gerações?</p>
-                <a href="#producao" class="btn">Explorar Conteúdo</a>
+                <div class="footer-slide">Slide 01 // Inovação no Campo</div>
             </div>
         </section>
 
-        <!-- Seção 1: Produção Agrícola -->
-        <section id="producao" class="section layout-grid">
-            <div class="text-block">
-                <h2>Produção & Economia</h2>
-                <p>O agronegócio representa cerca de 25% do PIB nacional. O grande desafio atual é desatrelar o crescimento financeiro do aumento do desmatamento, otimizando as terras já existentes.</p>
+        <!-- SLIDE 2: Dados e Economia -->
+        <section id="slide2" class="slide economia">
+            <div class="slide-content grid-two-columns">
+                <div class="col-text">
+                    <span class="tag-dark">01 . Potência Econômica</span>
+                    <h2>O Motor do <br>Nosso PIB</h2>
+                    <p>O agronegócio representa cerca de <strong>25% de toda a riqueza</strong> produzida no país, alimentando o mundo e gerando milhões de empregos diretos.</p>
+                </div>
+                <div class="col-visual">
+                    <div class="stat-box">
+                        <h3>25%</h3>
+                        <p>Participação no PIB Nacional</p>
+                    </div>
+                </div>
             </div>
-            <div class="visual-block text-center">
-                <i class="fa-solid fa-chart-line giant-icon"></i>
-                <p class="caption">Produtividade Máxima com Impacto Mínimo</p>
-            </div>
+            <div class="footer-slide text-dark">Slide 02 // Dados Econômicos</div>
         </section>
 
-        <!-- Seção 2: Tecnologia Sustentável -->
-        <section id="tecnologia" class="section bg-alt">
-            <h2 class="text-center">Tecnologias Sustentáveis</h2>
-            <div class="cards-container">
-                <div class="card">
-                    <i class="fa-solid fa-seedling"></i>
-                    <h3>Janela de Precisão</h3>
-                    <p>Sensores e GPS reduzem o desperdício de insumos no solo.</p>
+        <!-- SLIDE 3: Pilares Tecnológicos -->
+        <section id="slide3" class="slide tecnologia">
+            <div class="slide-content">
+                <div class="text-center-canva">
+                    <span class="tag">02 . Pilares de Inovação</span>
+                    <h2>Tecnologias Sustentáveis</h2>
                 </div>
-                <div class="card">
-                    <i class="fa-solid fa-droplet"></i>
-                    <h3>Irrigação Inteligente</h3>
-                    <p>Sistemas automatizados que economizam até 40% de água.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-helicopter"></i>
-                    <h3>Drones Agrícolas</h3>
-                    <p>Monitoramento preciso que detecta pragas precocemente.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-solar-panel"></i>
-                    <h3>Energia Limpa</h3>
-                    <p>Uso de matrizes fotovoltaicas e biomassa no campo.</p>
+                <div class="canva-cards">
+                    <div class="c-card">
+                        <div class="c-icon"><i class="fa-solid fa-drone"></i></div>
+                        <h4>Drones</h4>
+                        <p>Mapeamento de pragas em tempo real.</p>
+                    </div>
+                    <div class="c-card">
+                        <div class="c-icon"><i class="fa-solid fa-faucet-drip"></i></div>
+                        <h4>Irrigação</h4>
+                        <p>Sistemas inteligentes economizam 40% de água.</p>
+                    </div>
+                    <div class="c-card">
+                        <div class="c-icon"><i class="fa-solid fa-solar-panel"></i></div>
+                        <h4>Energia</h4>
+                        <p>Fazendas movidas a matriz solar e biomassa.</p>
+                    </div>
                 </div>
             </div>
+            <div class="footer-slide">Slide 03 // Tecnologia Limpa</div>
         </section>
 
-        <!-- Seção 3: Desafios Ambientais -->
-        <section id="desafios" class="section layout-grid">
-            <div class="visual-block text-center">
-                <i class="fa-solid fa-cloud-sun-rain giant-icon"></i>
-            </div>
-            <div class="text-block">
-                <h2>Desafios Críticos</h2>
-                <p>A emissão de gases estufa e a pegada hídrica são problemas reais. A transição para uma agricultura regenerativa visa neutralizar as emissões de carbono e recuperar solos degradados.</p>
-            </div>
-        </section>
-
-        <!-- Seção Interativa (Quiz e Calculadora) -->
-        <section id="interativo" class="section bg-alt layout-grid">
-            <!-- Calculadora -->
-            <div class="interactive-box">
-                <h2>Calculadora Hídrica</h2>
-                <p>Simule a economia de água em hectares usando irrigação inteligente:</p>
-                <div class="input-group">
-                    <input type="number" id="hectares" placeholder="Área em hectares">
-                    <button class="btn btn-sm" onclick="calcularAgua()">Calcular</button>
+        <!-- SLIDE 4: Espaço Interativo (Desafio) -->
+        <section id="slide4" class="slide interativo">
+            <div class="slide-content">
+                <div class="text-center-canva">
+                    <span class="tag-dark">03 . Ferramentas Digitais</span>
+                    <h2>Simulador & Quiz</h2>
                 </div>
-                <p id="resultadoCalculo" class="result-text"></p>
-            </div>
-
-            <!-- Quiz -->
-            <div class="interactive-box">
-                <h2>Quiz Rápido</h2>
-                <p id="perguntaQuiz">Qual tecnologia economiza até 40% de água no campo?</p>
-                <div class="quiz-options">
-                    <button class="btn btn-outline" onclick="verificarQuiz(false)">Drones</button>
-                    <button class="btn btn-outline" onclick="verificarQuiz(true)">Irrigação Inteligente</button>
+                <div class="canva-tools">
+                    <div class="tool-card">
+                        <h3><i class="fa-solid fa-droplet"></i> Economia Hídrica</h3>
+                        <label>Área da fazenda (Hectares):</label>
+                        <input type="number" id="hectares" placeholder="Ex: 80">
+                        <button class="btn-canva" onclick="calcularEconomia()">Simular Impacto</button>
+                        <p id="resultado-calc" class="canva-res"></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><i class="fa-solid fa-graduation-cap"></i> Desafio Rápido</h3>
+                        <p>A tecnologia atual permite produzir mais usando menos terra?</p>
+                        <div class="quiz-buttons">
+                            <button class="btn-canva-opt" onclick="responderQuiz(true)">Sim, com certeza</button>
+                            <button class="btn-canva-opt" onclick="responderQuiz(false)">Não, impossível</button>
+                        </div>
+                        <p id="resultado-quiz" class="canva-res"></p>
+                    </div>
                 </div>
-                <p id="resultadoQuiz" class="result-text"></p>
             </div>
+            <div class="footer-slide text-dark">Slide 04 // Interatividade</div>
         </section>
 
-        <!-- Seção 5: Contato -->
-        <section id="contato" class="section text-center">
-            <h2>Faça Parte da Mudança</h2>
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!');">
-                <input type="text" placeholder="Seu Nome" required>
-                <input type="email" placeholder="Seu E-mail" required>
-                <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
-                <button type="submit" class="btn">Enviar</button>
-            </form>
+        <!-- SLIDE 5: Encerramento -->
+        <section id="slide5" class="slide contato">
+            <div class="slide-content text-center-canva">
+                <span class="tag">Conclusão</span>
+                <h2>Faça Parte Desse Futuro</h2>
+                <p class="final-p">Gostou da apresentação? Deixe seu e-mail para receber conteúdos educativos semanais sobre o campo.</p>
+                <form class="canva-form" onsubmit="enviarFormulario(event)">
+                    <input type="email" id="email" placeholder="Seu melhor e-mail profissional" required>
+                    <button type="submit" class="btn-canva-submit">Se inscrever</button>
+                </form>
+            </div>
+            <div class="footer-slide">Slide 05 // Fim da Apresentação</div>
         </section>
-    </main>
 
-    <footer class="footer">
-        <p>&copy; 2026 Agrinho - Projeto Educativo. Todos os direitos reservados.</p>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
