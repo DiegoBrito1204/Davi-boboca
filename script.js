@@ -1,107 +1,81 @@
-// 1. MONITORAMENTO DE SEÇÕES (Intersection Observer para Rolagem)
-const sections = document.querySelectorAll('.dynamic-section');
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. Menu Responsivo Toggle
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-menu");
 
-const observerOptions = {
-    root: null, // Janela do navegador
-    threshold: 0.2
-};
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+    });
 
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            
-            // Ativa funções do Bloco de Dados Econômicos
-            if (entry.target.id === 'producao') {
-                animarElementosProducao();
+    // Fecha o menu ao clicar em qualquer link (útil para mobile)
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+        });
+    });
+
+    // 2. Animação de Rolagem (Fade-in das seções)
+    const secoes = document.querySelectorAll(".fade-in");
+    
+    const checarScroll = () => {
+        const gatilho = window.innerHeight * 0.85;
+        secoes.forEach(secao => {
+            const topoSecao = secao.getBoundingClientRect().top;
+            if (topoSecao < gatilho) {
+                secao.classList.add("visible");
             }
-        }
-    });
-}, observerOptions);
+        });
+    };
 
-sections.forEach(section => sectionObserver.observe(section));
+    window.addEventListener("scroll", checarScroll);
+    checarScroll(); // Executa uma vez no início caso haja elementos visíveis
 
+    // 3. Lógica do Quiz Interativo
+    const dadosQuiz = {
+        pergunta: "Qual das seguintes tecnologias tem como objetivo direto diminuir drasticamente o desperdício de recursos hídricos no campo?",
+        opcoes: [
+            "Drones de mapeamento térmico",
+            "Sistemas de irrigação inteligente por gotejamento",
+            "Uso de painéis solares em tratores",
+            "Compactação mecânica do solo"
+        ],
+        correta: 1 // Índice do array da resposta certa
+    };
 
-// 2. COMPORTAMENTO DOS COMPONENTES VISUAIS DA SEÇÃO 1
-function animarElementosProducao() {
-    // Alarga barra de progresso do gráfico estrutural
-    const bar = document.querySelector('.chart-bar');
-    if(bar) {
-        bar.style.width = bar.getAttribute('data-progress');
+    const containerPergunta = document.getElementById("quiz-pergunta");
+    const containerOpcoes = document.getElementById("quiz-opcoes");
+    const containerResultado = document.getElementById("quiz-resultado");
+
+    function carregarQuiz() {
+        containerPergunta.textContent = dadosQuiz.pergunta;
+        containerOpcoes.innerHTML = ""; // Limpa botões antigos
+
+        dadosQuiz.opcoes.forEach((opcao, indice) => {
+            const botao = document.createElement("button");
+            botao.textContent = opcao;
+            botao.addEventListener("click", () => verificarResposta(indice));
+            containerOpcoes.appendChild(botao);
+        });
     }
 
-    // Máquina de somar numérica (0% a 25%)
-    const pibCounter = document.getElementById('counter-pib');
-    const target = parseInt(pibCounter.getAttribute('data-target'));
-    let current = 0;
-    
-    if(pibCounter.innerText !== "0") return;
-
-    const interval = setInterval(() => {
-        if (current < target) {
-            current++;
-            pibCounter.innerText = current;
+    function verificarResposta(indiceSelecionado) {
+        if (indiceSelecionado === dadosQuiz.correta) {
+            containerResultado.textContent = "CORRETO! A irrigação inteligente direciona a água na quantidade certa para a raiz, evitando desperdícios.";
+            containerResultado.style.color = "var(--primary)";
         } else {
-            clearInterval(interval);
-            pibCounter.innerText = target + "%";
+            containerResultado.textContent = "Ops, resposta incorreta! Tente analisar qual tecnologia foca puramente no uso da água.";
+            containerResultado.style.color = "var(--alert)";
         }
-    }, 40);
-}
-
-
-// 3. DESAFIO COMPLEMENTAR: CALCULADORA HÍDRICA DINÂMICA
-const hectaresInput = document.getElementById('hectares');
-hectaresInput.addEventListener('input', () => {
-    const value = hectaresInput.value;
-    const res = document.getElementById('resultado-calc');
-    res.style.display = "block";
-
-    if (!value || value <= 0) {
-        res.style.color = "#e63946";
-        res.innerText = "Aguardando um tamanho em hectares...";
-        return;
     }
 
-    // Regra: 15.000 litros por hectare ao mês salvos
-    const economiaCalculada = value * 15000 * 12;
-    res.style.color = "#1a1a1a";
-    res.innerHTML = `💧 <strong>${economiaCalculada.toLocaleString('pt-BR')} Litros</strong> poupados anualmente via sensores inteligentes!`;
-});
+    carregarQuiz();
 
-
-// 4. DESAFIO COMPLEMENTAR: QUIZ DE RESPOSTA IMEDIATA
-const quizButtons = document.querySelectorAll('.btn-canva-opt');
-quizButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        const isCorrect = e.target.getAttribute('data-correct') === "true";
-        const res = document.getElementById('resultado-quiz');
-        res.style.display = "block";
-
-        if (isCorrect) {
-            res.style.color = "#006400";
-            res.innerText = "🎯 Certíssimo! A rotação preserva o solo e quebra o ciclo de pragas.";
-        } else {
-            res.style.color = "#e63946";
-            res.innerText = "❌ Incorreto. Ela é uma das bases mais baratas e eficazes da sustentabilidade.";
-        }
+    // 4. Envio do Formulário de Contato (Simulação)
+    const form = document.getElementById("form-contato");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Obrigado pelo seu envio! Juntos construímos um agronegócio mais forte e sustentável.");
+        form.reset();
     });
-});
-
-
-// 5. MENSAGEM FINAL / FORMULÁRIO DE CONSCIENTIZAÇÃO
-document.getElementById('dynamic-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const btn = e.target.querySelector('button');
-    
-    btn.innerText = "Processando Informações...";
-    btn.disabled = true;
-
-    setTimeout(() => {
-        alert(`Obrigado pela participação, ${username}! Seu e-mail foi cadastrado no radar sustentável.`);
-        btn.innerText = "Enviar Mensagem";
-        btn.disabled = false;
-        document.getElementById('username').value = "";
-        document.getElementById('email').value = "";
-    }, 1200);
 });
