@@ -3,19 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extrator de Palavras-Chave</title>
-    <link rel="stylesheet" href="novo-estilo.css">
+    <title>Agrinho | Sustentabilidade no Agronegócio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
-    <div class="container">
-        <h1>Extrator de Palavras-Chave</h1>
-        <textarea id="entradaTexto" placeholder="Digite ou cole seu texto aqui..."></textarea>
-        <button id="botaoExtrair">Extrair Palavras</button>
-        <div class="resultado">
-            <h2>Palavras-chave:</h2>
-            <ul id="listaPalavras"></ul>
-        </div>
-    </div>
-    <script src="app-renomeado.js"></script>
+
+    <!-- Menu de Navegação -->
+    <header class="navbar">
+        <div class="logo">AGRINHO</div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Início</a>
+            <a href="#producao">Produção</a>
+            <a href="#tecnologia">Tecnologia</a>
+            <a href="#desafios">Desafios</a>
+            <a href="#interativo">Interativo</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Página Inicial -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>O Futuro da Terra na Tecnologia de Hoje</h1>
+                <p>Como o agronegócio pode crescer economicamente sem comprometer os recursos naturais das futuras gerações?</p>
+                <a href="#producao" class="btn">Explorar Conteúdo</a>
+            </div>
+        </section>
+
+        <!-- Seção 1: Produção Agrícola -->
+        <section id="producao" class="section layout-grid">
+            <div class="text-block">
+                <h2>Produção & Economia</h2>
+                <p>O agronegócio representa cerca de 25% do PIB nacional. O grande desafio atual é desatrelar o crescimento financeiro do aumento do desmatamento, otimizando as terras já existentes.</p>
+            </div>
+            <div class="visual-block text-center">
+                <i class="fa-solid fa-chart-line giant-icon"></i>
+                <p class="caption">Produtividade Máxima com Impacto Mínimo</p>
+            </div>
+        </section>
+
+        <!-- Seção 2: Tecnologia Sustentável -->
+        <section id="tecnologia" class="section bg-alt">
+            <h2 class="text-center">Tecnologias Sustentáveis</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <i class="fa-solid fa-seedling"></i>
+                    <h3>Janela de Precisão</h3>
+                    <p>Sensores e GPS reduzem o desperdício de insumos no solo.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-droplet"></i>
+                    <h3>Irrigação Inteligente</h3>
+                    <p>Sistemas automatizados que economizam até 40% de água.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-helicopter"></i>
+                    <h3>Drones Agrícolas</h3>
+                    <p>Monitoramento preciso que detecta pragas precocemente.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-solar-panel"></i>
+                    <h3>Energia Limpa</h3>
+                    <p>Uso de matrizes fotovoltaicas e biomassa no campo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3: Desafios Ambientais -->
+        <section id="desafios" class="section layout-grid">
+            <div class="visual-block text-center">
+                <i class="fa-solid fa-cloud-sun-rain giant-icon"></i>
+            </div>
+            <div class="text-block">
+                <h2>Desafios Críticos</h2>
+                <p>A emissão de gases estufa e a pegada hídrica são problemas reais. A transição para uma agricultura regenerativa visa neutralizar as emissões de carbono e recuperar solos degradados.</p>
+            </div>
+        </section>
+
+        <!-- Seção Interativa (Quiz e Calculadora) -->
+        <section id="interativo" class="section bg-alt layout-grid">
+            <!-- Calculadora -->
+            <div class="interactive-box">
+                <h2>Calculadora Hídrica</h2>
+                <p>Simule a economia de água em hectares usando irrigação inteligente:</p>
+                <div class="input-group">
+                    <input type="number" id="hectares" placeholder="Área em hectares">
+                    <button class="btn btn-sm" onclick="calcularAgua()">Calcular</button>
+                </div>
+                <p id="resultadoCalculo" class="result-text"></p>
+            </div>
+
+            <!-- Quiz -->
+            <div class="interactive-box">
+                <h2>Quiz Rápido</h2>
+                <p id="perguntaQuiz">Qual tecnologia economiza até 40% de água no campo?</p>
+                <div class="quiz-options">
+                    <button class="btn btn-outline" onclick="verificarQuiz(false)">Drones</button>
+                    <button class="btn btn-outline" onclick="verificarQuiz(true)">Irrigação Inteligente</button>
+                </div>
+                <p id="resultadoQuiz" class="result-text"></p>
+            </div>
+        </section>
+
+        <!-- Seção 5: Contato -->
+        <section id="contato" class="section text-center">
+            <h2>Faça Parte da Mudança</h2>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!');">
+                <input type="text" placeholder="Seu Nome" required>
+                <input type="email" placeholder="Seu E-mail" required>
+                <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+                <button type="submit" class="btn">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Agrinho - Projeto Educativo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
