@@ -1,9 +1,9 @@
-// 1. GATILHOS DINÂMICOS DE ANIMAÇÃO (Intersection Observer)
+javascript// 1. ANIMAÇÕES DINÂMICAS AO ROLAR A TELA (Intersection Observer para Janela Geral)
 const sections = document.querySelectorAll('.dynamic-section');
 
 const observerOptions = {
-    root: document.querySelector('.slides-container'),
-    threshold: 0.4 // Ativa quando 40% do slide está visível
+    root: null, // Usa o scroll da janela global do navegador
+    threshold: 0.2 // Dispara assim que 20% da seção aparece na tela
 };
 
 const sectionObserver = new IntersectionObserver((entries) => {
@@ -11,8 +11,8 @@ const sectionObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
             
-            // Disparar ações internas específicas do slide visível
-            if (entry.target.id === 'slide2') {
+            // Disparar o contador e gráfico do bloco de dados
+            if (entry.target.id === 'economia') {
                 animarGraficoERecurso();
             }
         }
@@ -22,21 +22,20 @@ const sectionObserver = new IntersectionObserver((entries) => {
 sections.forEach(section => sectionObserver.observe(section));
 
 
-// 2. MAPEAR BARRA DE PROGRESSO E CONTADOR AUTOMÁTICO (Slide 2)
+// 2. DISPARADORES VISUAIS DA SEÇÃO DE DADOS
 function animarGraficoERecurso() {
-    // Crescer as barras do gráfico dinamicamente
+    // Alarga as barras do gráfico de 0% para o valor final
     const bars = document.querySelectorAll('.chart-bar');
     bars.forEach(bar => {
         bar.style.width = bar.getAttribute('data-progress');
     });
 
-    // Contador de números em efeito máquina de somar
+    // Efeito numérico crescente (0 a 25)
     const pibCounter = document.getElementById('counter-pib');
     const target = parseInt(pibCounter.getAttribute('data-target'));
     let current = 0;
     
-    // Evita reiniciar se já contou
-    if(pibCounter.innerText !== "0") return;
+    if(pibCounter.innerText !== "0") return; // Impede que reinicie toda vez que passar o scroll
 
     const interval = setInterval(() => {
         if (current < target) {
@@ -50,27 +49,7 @@ function animarGraficoERecurso() {
 }
 
 
-// 3. ATUALIZADOR DE INDICADOR DE SLIDES (Bolinhas do Menu)
-const container = document.querySelector('.slides-container');
-const dots = document.querySelectorAll('.dot');
-
-container.addEventListener('scroll', () => {
-    sections.forEach(slide => {
-        const slideTop = slide.offsetTop;
-        if (container.scrollTop >= slideTop - window.innerHeight / 2) {
-            const currentId = slide.getAttribute('id');
-            dots.forEach(dot => {
-                dot.classList.remove('active');
-                if (dot.getAttribute('href') === `#${currentId}`) {
-                    dot.classList.add('active');
-                }
-            });
-        }
-    });
-});
-
-
-// 4. CALCULADORA DINÂMICA (Resposta ao Digitar - Evento Input)
+// 3. CALCULADORA INTERATIVA (Captura em Tempo Real ao digitar)
 const hectaresInput = document.getElementById('hectares');
 hectaresInput.addEventListener('input', () => {
     const value = hectaresInput.value;
@@ -79,17 +58,17 @@ hectaresInput.addEventListener('input', () => {
 
     if (!value || value <= 0) {
         res.style.color = "#d90429";
-        res.innerText = "Esperando uma área válida...";
+        res.innerText = "Aguardando um tamanho válido...";
         return;
     }
 
     const economiaCalculada = value * 15000 * 12;
     res.style.color = "#1a1a1a";
-    res.innerHTML = `💧 Algoritmo rodando: Economia de <strong>${economiaCalculada.toLocaleString('pt-BR')}L</strong> por ano!`;
+    res.innerHTML = `💧 Resultado: Economia estimada de <strong>${economiaCalculada.toLocaleString('pt-BR')}L</strong> por ano!`;
 });
 
 
-// 5. QUIZ INTERATIVO COM MANIPULAÇÃO DE CLASSES
+// 4. LOGICA DO QUIZ DINÂMICO
 const quizButtons = document.querySelectorAll('.btn-canva-opt');
 quizButtons.forEach(button => {
     button.addEventListener('click', (e) => {
@@ -98,30 +77,27 @@ quizButtons.forEach(button => {
         res.style.display = "block";
 
         if (isCorrect) {
-            res.style.color = "#06d6a0";
+            res.style.color = "#006400";
             res.innerText = "🎯 Resposta exata! A tecnologia evita a expansão de terras desnecessárias.";
         } else {
-            res.style.color = "#ff5e62";
+            res.style.color = "#d90429";
             res.innerText = "❌ Incorreto. O segredo atual está em aumentar a produção por hectare.";
         }
     });
 });
 
 
-// 6. FORMULÁRIO COM FEEDBACK ASSÍNCRONO SIMULADO
+// 5. SUBMISSÃO DO FORMULÁRIO COM FEEDBACK
 document.getElementById('dynamic-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const btn = e.target.querySelector('button');
-    const originalText = btn.innerText;
-    
-    // Efeito dinâmico de carregamento de dados
-    btn.innerText = "Processando...";
+    btn.innerText = "Sincronizando...";
     btn.disabled = true;
 
     setTimeout(() => {
-        alert("✨ Dados sincronizados com sucesso! Seus resultados foram registrados.");
-        btn.innerText = originalText;
+        alert("✨ Concluído! Seus dados de conscientização ecológica foram registrados.");
+        btn.innerText = "Enviar Dados";
         btn.disabled = false;
         document.getElementById('email').value = "";
-    }, 1500);
+    }, 1200);
 });
