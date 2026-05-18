@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroVerde - Apresentação Interativa</title>
+    <title>AgroVerde - Apresentação Dinâmica</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
-    <!-- Navegação Estilo Canva -->
+    <!-- Navegação Canva Pop -->
     <header class="canva-nav">
         <div class="logo"><i class="fa-solid fa-leaf"></i> AgroVerde</div>
         <nav class="slide-indicator">
@@ -19,93 +19,102 @@
             <a href="#slide4" class="dot" data-slide="4"></a>
             <a href="#slide5" class="dot" data-slide="5"></a>
         </nav>
-        <a href="#slide4" class="btn-interagir">Interagir <i class="fa-solid fa-play"></i></a>
+        <a href="#slide4" class="btn-interagir">Testar Sistema <i class="fa-solid fa-bolt"></i></a>
     </header>
 
-    <!-- Container dos Slides -->
     <div class="slides-container">
 
-        <!-- SLIDE 1: Capa Impactante -->
-        <section id="slide1" class="slide capa">
+        <!-- SLIDE 1: Capa Animada -->
+        <section id="slide1" class="slide capa dynamic-section">
             <div class="shapes">
-                <div class="circle-shape"></div>
-                <div class="leaf-shape"></div>
+                <div class="circle-shape rotate-anim"></div>
             </div>
-            <div class="slide-content">
-                <span class="tag">Apresentação Educativa</span>
+            <div class="slide-content animate-up">
+                <span class="tag">Apresentação Viva</span>
                 <h1>Cultivando o <br><span class="highlight">Futuro</span></h1>
                 <p>Como o agronegócio pode crescer economicamente sem comprometer os recursos naturais das futuras gerações?</p>
-                <div class="footer-slide">Slide 01 // Inovação no Campo</div>
+                <div class="footer-slide">Slide 01 // Inovação</div>
             </div>
         </section>
 
-        <!-- SLIDE 2: Dados e Economia -->
-        <section id="slide2" class="slide economia">
+        <!-- SLIDE 2: Estatísticas Dinâmicas -->
+        <section id="slide2" class="slide economia dynamic-section">
             <div class="slide-content grid-two-columns">
-                <div class="col-text">
-                    <span class="tag-dark">01 . Potência Econômica</span>
-                    <h2>O Motor do <br>Nosso PIB</h2>
-                    <p>O agronegócio representa cerca de <strong>25% de toda a riqueza</strong> produzida no país, alimentando o mundo e gerando milhões de empregos diretos.</p>
+                <div class="col-text animate-left">
+                    <span class="tag-dark">01 . Crescimento Limpo</span>
+                    <h2>Eficiência em <br>Gráficos</h2>
+                    <p>O uso de tecnologia permite produzir mais usando a mesma quantidade de terra. Veja o ganho de eficiência projetado abaixo:</p>
+                    
+                    <!-- Gráfico Dinâmico feito em CSS/JS -->
+                    <div class="dynamic-chart-container">
+                        <div class="chart-bar-wrapper">
+                            <span class="bar-label">Tradicional</span>
+                            <div class="chart-bar bar-1" data-progress="40%"></div>
+                        </div>
+                        <div class="chart-bar-wrapper">
+                            <span class="bar-label">Tecnológico</span>
+                            <div class="chart-bar bar-2" data-progress="95%"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-visual">
+                <div class="col-visual animate-right">
                     <div class="stat-box">
-                        <h3>25%</h3>
-                        <p>Participação no PIB Nacional</p>
+                        <h3 id="counter-pib" data-target="25">0</h3>
+                        <p>Participação Dinâmica no PIB (%)</p>
                     </div>
                 </div>
             </div>
-            <div class="footer-slide text-dark">Slide 02 // Dados Econômicos</div>
+            <div class="footer-slide text-dark">Slide 02 // Dados Reais</div>
         </section>
 
-        <!-- SLIDE 3: Pilares Tecnológicos -->
-        <section id="slide3" class="slide tecnologia">
+        <!-- SLIDE 3: Inovações (Cards com delay de animação) -->
+        <section id="slide3" class="slide tecnologia dynamic-section">
             <div class="slide-content">
-                <div class="text-center-canva">
-                    <span class="tag">02 . Pilares de Inovação</span>
-                    <h2>Tecnologias Sustentáveis</h2>
+                <div class="text-center-canva animate-up">
+                    <span class="tag">02 . Automação</span>
+                    <h2>Monitoramento Inteligente</h2>
                 </div>
                 <div class="canva-cards">
-                    <div class="c-card">
+                    <div class="c-card animate-card" style="--delay: 1;">
                         <div class="c-icon"><i class="fa-solid fa-drone"></i></div>
                         <h4>Drones</h4>
-                        <p>Mapeamento de pragas em tempo real.</p>
+                        <p>Varredura de pragas em minutos.</p>
                     </div>
-                    <div class="c-card">
+                    <div class="c-card animate-card" style="--delay: 2;">
                         <div class="c-icon"><i class="fa-solid fa-faucet-drip"></i></div>
                         <h4>Irrigação</h4>
-                        <p>Sistemas inteligentes economizam 40% de água.</p>
+                        <p>Ativação apenas com solo seco.</p>
                     </div>
-                    <div class="c-card">
+                    <div class="c-card animate-card" style="--delay: 3;">
                         <div class="c-icon"><i class="fa-solid fa-solar-panel"></i></div>
                         <h4>Energia</h4>
-                        <p>Fazendas movidas a matriz solar e biomassa.</p>
+                        <p>Operação 100% autossustentável.</p>
                     </div>
                 </div>
             </div>
-            <div class="footer-slide">Slide 03 // Tecnologia Limpa</div>
+            <div class="footer-slide">Slide 03 // Tecnologia</div>
         </section>
 
-        <!-- SLIDE 4: Espaço Interativo (Desafio) -->
-        <section id="slide4" class="slide interativo">
+        <!-- SLIDE 4: Simulador Dinâmico -->
+        <section id="slide4" class="slide interativo dynamic-section">
             <div class="slide-content">
-                <div class="text-center-canva">
-                    <span class="tag-dark">03 . Ferramentas Digitais</span>
-                    <h2>Simulador & Quiz</h2>
+                <div class="text-center-canva animate-up">
+                    <span class="tag-dark">03 . Algoritmos</span>
+                    <h2>Simulações em Tempo Real</h2>
                 </div>
-                <div class="canva-tools">
+                <div class="canva-tools animate-up">
                     <div class="tool-card">
-                        <h3><i class="fa-solid fa-droplet"></i> Economia Hídrica</h3>
-                        <label>Área da fazenda (Hectares):</label>
-                        <input type="number" id="hectares" placeholder="Ex: 80">
-                        <button class="btn-canva" onclick="calcularEconomia()">Simular Impacto</button>
+                        <h3><i class="fa-solid fa-droplet"></i> Calculadora Hídrica</h3>
+                        <label>Tamanho da Área (Hectares):</label>
+                        <input type="number" id="hectares" placeholder="Digite um valor e veja a mágica...">
                         <p id="resultado-calc" class="canva-res"></p>
                     </div>
                     <div class="tool-card">
-                        <h3><i class="fa-solid fa-graduation-cap"></i> Desafio Rápido</h3>
-                        <p>A tecnologia atual permite produzir mais usando menos terra?</p>
+                        <h3><i class="fa-solid fa-graduation-cap"></i> Quiz de Resposta Imediata</h3>
+                        <p>O desmatamento é obrigatório para aumentar o PIB do Agro?</p>
                         <div class="quiz-buttons">
-                            <button class="btn-canva-opt" onclick="responderQuiz(true)">Sim, com certeza</button>
-                            <button class="btn-canva-opt" onclick="responderQuiz(false)">Não, impossível</button>
+                            <button class="btn-canva-opt" data-correct="false">Sim, precisa</button>
+                            <button class="btn-canva-opt" data-correct="true">Não, mentira</button>
                         </div>
                         <p id="resultado-quiz" class="canva-res"></p>
                     </div>
@@ -114,18 +123,18 @@
             <div class="footer-slide text-dark">Slide 04 // Interatividade</div>
         </section>
 
-        <!-- SLIDE 5: Encerramento -->
-        <section id="slide5" class="slide contato">
-            <div class="slide-content text-center-canva">
-                <span class="tag">Conclusão</span>
-                <h2>Faça Parte Desse Futuro</h2>
-                <p class="final-p">Gostou da apresentação? Deixe seu e-mail para receber conteúdos educativos semanais sobre o campo.</p>
-                <form class="canva-form" onsubmit="enviarFormulario(event)">
-                    <input type="email" id="email" placeholder="Seu melhor e-mail profissional" required>
-                    <button type="submit" class="btn-canva-submit">Se inscrever</button>
+        <!-- SLIDE 5: Conclusão -->
+        <section id="slide5" class="slide contato dynamic-section">
+            <div class="slide-content text-center-canva animate-up">
+                <span class="tag">Fim da Jornada</span>
+                <h2>Gostou da Experiência?</h2>
+                <p class="final-p">Deixe seu contato para receber o relatório completo gerado pelas suas interações.</p>
+                <form class="canva-form" id="dynamic-form">
+                    <input type="email" id="email" placeholder="Seu melhor e-mail" required>
+                    <button type="submit">Enviar Dados</button>
                 </form>
             </div>
-            <div class="footer-slide">Slide 05 // Fim da Apresentação</div>
+            <div class="footer-slide">Slide 05 // Conclusão</div>
         </section>
 
     </div>
